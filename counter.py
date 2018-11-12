@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import time
 import argparse
 from selenium import webdriver
@@ -30,12 +31,15 @@ def count_potatoes(config):
         guess_input.clear()
         guess_input.send_keys(counter)
 
-        time.sleep(15)
+        submit_button = driver.find_element_by_xpath('//center/form[1]/input[3]')
+        submit_button.click()
+
+        time.sleep(3)
+
         driver.quit()
 
     except Exception:
         driver.quit()
-
 
 def arg_parser() -> argparse.ArgumentParser:
     desc = 'It counts potatoes guys'
