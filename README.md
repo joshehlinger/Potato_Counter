@@ -1,8 +1,6 @@
 # Potato Counter
 Because my wife loves her neopets and I can't stop myself.
-It counts potatoes using selenium. Currently, you need to
-actually be the one that clicks the 'submit' button. You
-have 15 seconds to do so.
+It counts potatoes using selenium. 
 
 ## Development
 `virtualenv env`
