@@ -1,6 +1,6 @@
 # Potato Counter
 Because my wife loves her neopets and I can't stop myself.
-It counts potatoes using selenium. 
+It counts potatoes using selenium.
 
 ## Development
 `virtualenv env`

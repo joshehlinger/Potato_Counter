@@ -34,7 +34,7 @@ def count_potatoes(config):
         submit_button = driver.find_element_by_xpath('//center/form[1]/input[3]')
         submit_button.click()
 
-        time.sleep(3)
+        time.sleep(1)
 
         driver.quit()
 
@@ -58,7 +58,8 @@ def arg_parser() -> argparse.ArgumentParser:
 def main(args=None):
     parser = arg_parser()
     config = parser.parse_args(args=args)
-    count_potatoes(config)
+    for x in range(3):
+        count_potatoes(config)
 
 
 if __name__ == '__main__':
