@@ -72,8 +72,8 @@ def main(args=None):
     if config.username is None or config.password is None:
         print('Username and Password are required!')
         return 1
-    for x in range(3):
-        count_potatoes(config)
+    
+    count_potatoes(config)
     return 0
 
 
