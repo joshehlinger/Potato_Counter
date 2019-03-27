@@ -30,26 +30,27 @@ def count_potatoes(config):
 
         #Count those taters
         print('Counting Taters')
-        counter = 0
-        potatable = driver.find_element_by_xpath("//td[@class='content']/table[1]")
-        for row in potatable.find_elements_by_xpath(".//tr"):
-            for td in row.find_elements_by_xpath(".//img"):
-                counter += 1
-        print('Tater count complete - {} potatoes'.format(counter))
+        potatoes1 = driver.find_elements_by_css_selector("img[src^='http://images.neopets.com/medieval/potato1']")
+        potatoes2 = driver.find_elements_by_css_selector("img[src^='http://images.neopets.com/medieval/potato2']")
+        potatoes3 = driver.find_elements_by_css_selector("img[src^='http://images.neopets.com/medieval/potato3']")
+        potatoes4 = driver.find_elements_by_css_selector("img[src^='http://images.neopets.com/medieval/potato4']")
+        total = len(potatoes1) + len(potatoes2) + len(potatoes3) + len(potatoes4)
+        print('Tater count complete - {} potatoes'.format(total))
 
         guess_input = driver.find_element_by_name('guess')
         guess_input.clear()
-        guess_input.send_keys(counter)
+        guess_input.send_keys(total)
 
         submit_button = driver.find_element_by_xpath('//center/form[1]/input[3]')
         submit_button.click()
         print('Guessed successfully!')
 
-        time.sleep(10)
+        time.sleep(5)
 
         driver.quit()
 
-    except Exception:
+    except Exception as e:
+        print(e)
         driver.quit()
 
 def arg_parser() -> argparse.ArgumentParser:
@@ -72,8 +73,9 @@ def main(args=None):
     if config.username is None or config.password is None:
         print('Username and Password are required!')
         return 1
-    
-    count_potatoes(config)
+
+    for x in range(3):
+        count_potatoes(config)
     return 0
 
 
